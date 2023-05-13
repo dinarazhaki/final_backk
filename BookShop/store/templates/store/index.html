@@ -1,0 +1,47 @@
+{% extends 'store/base.html' %}
+{% load static %}
+{% load customfunction %}
+{% block container %}
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="titleheader">
+						<h3 class="h2header text-center">Kitaptar</h3>
+					</div>
+					<div class="sliderzx">
+						{% for item in newbooks %}
+						<div class="book-wrapper text-center">
+							<div class="coverpage">
+								<img src="{{ item.coverpage.url }}"/>
+							</div>
+
+							<a href="{% url 'store:book' id=item.id %}">{{ item.book }}</a>
+
+							<p> {{ item.price }} $.</p>
+							<button class="btn" id="addTocart" data-book-id="{{ item.id }}">
+									Buy
+								</button>
+						</div>
+						{% endfor %}
+					</div>
+				</div>
+
+					<div class="col-sm-12">
+					<div class="sliderzx">
+						{% for item in newbooks %}
+						<div style="background:white" class="book-wrapper text-center">
+							<div class="coverpage">
+								<img src="{{ item.coverpage.url }}"/>
+							</div>
+
+							<a href="{% url 'store:book' id=item.id %}">{{ item.book }}</a>
+
+							<p> {{ item.price }} $.</p>
+							<button class="btn" id="addTocart" data-book-id="{{ item.id }}">
+									Buy
+								</button>
+						</div>
+						{% endfor %}
+					</div>
+				</div>
+			</div>
+			{% endblock %}
